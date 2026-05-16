@@ -1,5 +1,88 @@
 @import "tailwindcss";
 
+:root {
+  --color-crimson: #d6183e;
+  --color-teal-dark: #12404f;
+  --color-orange: #e96c1a;
+  --color-teal-mid: #318b89;
+  --color-carbon: #231f20;
+  --color-bg: #231f20;
+  --color-text: #f5f0eb;
+  --color-text-muted: #a89f96;
+  --gradient-cosmic: linear-gradient(
+    135deg,
+    #d6183e 0%,
+    #e96c1a 40%,
+    #12404f 100%
+  );
+  --gradient-hero: radial-gradient(
+    ellipse 120% 80% at 50% -20%,
+    #d6183e 0%,
+    #e96c1a 22%,
+    #231f20 68%
+  );
+}
+
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-cormorant-unicase);
+  --font-serif: var(--font-cormorant-garamond);
+
+  --color-crimson: #d6183e;
+  --color-teal-dark: #12404f;
+  --color-orange: #e96c1a;
+  --color-teal-mid: #318b89;
+  --color-carbon: #231f20;
+  --color-ivory: #f5f0eb;
+  --color-sand: #a89f96;
+}
+
+body {
+  background-color: var(--color-carbon);
+  color: var(--color-text);
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.gradient-cosmic-text {
+  background: var(--gradient-cosmic);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-cosmic-bg {
+  background: var(--gradient-hero);
+}
+
+.section-gradient-line {
+  height: 1px;
+  background: var(--gradient-cosmic);
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center px-8 py-3.5 bg-crimson text-ivory font-medium rounded-full transition-colors hover:bg-orange;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-8 py-3.5 border border-teal-mid text-ivory font-medium rounded-full transition-colors hover:bg-teal-dark/50;
 }

@@ -1,36 +1,62 @@
 import { siteConfig } from "@/config/site";
+import Mandala from "@/components/brand/Mandala";
 
 export default function Hero() {
-  const { badge, title, titleHighlight, subtitle, ctaPrimary, ctaSecondary, ctaPrimaryUrl, ctaSecondaryUrl } = siteConfig.hero;
+  const {
+    badge,
+    title,
+    titleHighlight,
+    subtitle,
+    ctaPrimary,
+    ctaSecondary,
+    ctaPrimaryUrl,
+    ctaSecondaryUrl,
+  } = siteConfig.hero;
 
   return (
-    <section id="hero" className="pt-32 pb-20 px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-indigo-700 bg-indigo-50 rounded-full">
+    <section
+      id="hero"
+      className="relative pt-32 pb-24 px-6 overflow-hidden hero-cosmic-bg"
+    >
+      <motionGlow className="-top-32 left-1/4 bg-crimson/20" />
+      <motionGlow className="-top-20 right-1/4 bg-orange/15" />
+      <motionGlow className="bottom-0 left-1/2 -translate-x-1/2 bg-teal-mid/10" />
+
+      <div className="relative max-w-4xl mx-auto text-center z-10">
+        <Mandala className="w-14 h-14 mx-auto mb-6 text-teal-mid" />
+        <span className="inline-block px-4 py-1.5 mb-6 text-xs font-medium tracking-widest uppercase text-sand border border-teal-mid/40 rounded-full">
           {badge}
         </span>
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+        <h1 className="font-display text-5xl md:text-7xl font-semibold text-ivory leading-tight mb-2 tracking-wide">
           {title}
-          <span className="text-indigo-600"> {titleHighlight}</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+        <p className="font-display text-4xl md:text-6xl gradient-cosmic-text font-semibold mb-8 tracking-wide">
+          {titleHighlight}
+        </p>
+        <p className="font-serif text-lg md:text-xl text-sand max-w-2xl mx-auto mb-10 leading-relaxed">
           {subtitle}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={ctaPrimaryUrl}
-            className="w-full sm:w-auto px-8 py-3.5 bg-black text-white font-medium rounded-full hover:bg-gray-900 transition-colors text-center"
-          >
+          <a href={ctaPrimaryUrl} className="btn-primary w-full sm:w-auto text-center">
             {ctaPrimary}
           </a>
           <a
             href={ctaSecondaryUrl}
-            className="w-full sm:w-auto px-8 py-3.5 border border-gray-900 text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-colors text-center"
+            className="btn-secondary w-full sm:w-auto text-center"
           >
             {ctaSecondary}
           </a>
         </div>
       </div>
     </section>
+  );
+}
+
+function motionGlow({ className = "" }) {
+  return (
+    <div
+      className={`pointer-events-none absolute w-96 h-96 rounded-full blur-3xl ${className}`}
+      aria-hidden="true"
+    />
   );
 }

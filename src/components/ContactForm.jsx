@@ -7,18 +7,23 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+const inputBase =
+  "w-full px-4 py-3 bg-carbon border rounded-xl text-ivory placeholder:text-sand/60 focus:outline-none focus:ring-2 focus:ring-teal-mid focus:border-transparent transition";
+const inputOk = "border-teal-mid/40";
+const inputErr = "border-crimson/60 bg-crimson/5";
+
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [serverError, setServerError] = useState("");
 
-  const { heading, subheading, form: formConfig, schedulingUrl, schedulingCta } = siteConfig.contact;
+  const { heading, subheading, form: formConfig, schedulingUrl, schedulingCta } =
+    siteConfig.contact;
 
   function handleChange(e) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    // Limpia el error del campo cuando el usuario empieza a corregirlo
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -26,20 +31,16 @@ export default function ContactForm() {
 
   function validate() {
     const newErrors = {};
-    if (!form.name.trim()) {
-      newErrors.name = "Por favor escribe tu nombre.";
-    }
+    if (!form.name.trim()) newErrors.name = "Por favor escribe tu nombre.";
     if (!form.email.trim()) {
       newErrors.email = "Por favor escribe tu email.";
     } else if (!isValidEmail(form.email)) {
-      newErrors.email = "Ese email no parece valido. Ejemplo: nombre@correo.com";
+      newErrors.email = "Ese email no parece válido.";
     }
     if (formConfig.phoneRequired && !form.phone.trim()) {
-      newErrors.phone = "Por favor escribe tu telefono.";
+      newErrors.phone = "Por favor escribe tu teléfono.";
     }
-    if (!form.message.trim()) {
-      newErrors.message = "Por favor escribe tu mensaje.";
-    }
+    if (!form.message.trim()) newErrors.message = "Por favor escribe tu mensaje.";
     return newErrors;
   }
 
@@ -83,32 +84,29 @@ export default function ContactForm() {
     <section id="contact" className="py-20 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ivory mb-4 tracking-wide">
             {heading}
           </h2>
-          <p className="text-lg text-gray-600">
-            {subheading}
-          </p>
-          {schedulingUrl && (
+          <p className="font-serif text-lg text-sand">{subheading}</p>
+          {schedulingUrl ? (
             <a
               href={schedulingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-4 px-6 py-2.5 border border-black text-black font-medium rounded-full hover:bg-gray-100 transition-colors text-sm"
+              className="inline-block mt-4 px-6 py-2.5 border border-teal-mid text-ivory font-medium rounded-full hover:bg-teal-dark/50 transition-colors text-sm"
             >
               {schedulingCta}
             </a>
-          )}
+          ) : null}
         </div>
 
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="bg-white border border-gray-200 rounded-2xl p-8 space-y-6"
+          className="bg-teal-dark/30 border border-teal-mid/30 rounded-2xl p-8 space-y-6"
         >
-          {/* Nombre */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-ivory mb-2">
               Nombre
             </label>
             <input
@@ -118,18 +116,15 @@ export default function ContactForm() {
               value={form.name}
               onChange={handleChange}
               placeholder={formConfig.namePlaceholder}
-              className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition ${
-                errors.name ? "border-red-400 bg-red-50" : "border-gray-300"
-              }`}
+              className={`${inputBase} ${errors.name ? inputErr : inputOk}`}
             />
-            {errors.name && (
-              <p className="mt-1.5 text-sm text-red-600">{errors.name}</p>
-            )}
+            {errors.name ? (
+              <p className="mt-1.5 text-sm text-crimson">{errors.name}</p>
+            ) : null}
           </div>
 
-          {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-ivory mb-2">
               Email
             </label>
             <input
@@ -139,22 +134,19 @@ export default function ContactForm() {
               value={form.email}
               onChange={handleChange}
               placeholder={formConfig.emailPlaceholder}
-              className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition ${
-                errors.email ? "border-red-400 bg-red-50" : "border-gray-300"
-              }`}
+              className={`${inputBase} ${errors.email ? inputErr : inputOk}`}
             />
-            {errors.email && (
-              <p className="mt-1.5 text-sm text-red-600">{errors.email}</p>
-            )}
+            {errors.email ? (
+              <p className="mt-1.5 text-sm text-crimson">{errors.email}</p>
+            ) : null}
           </div>
 
-          {/* Telefono */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-              Telefono
-              {!formConfig.phoneRequired && (
-                <span className="ml-1.5 text-gray-400 font-normal">(opcional)</span>
-              )}
+            <label htmlFor="phone" className="block text-sm font-medium text-ivory mb-2">
+              Teléfono
+              {!formConfig.phoneRequired ? (
+                <span className="ml-1.5 text-sand font-normal">(opcional)</span>
+              ) : null}
             </label>
             <input
               id="phone"
@@ -163,18 +155,15 @@ export default function ContactForm() {
               value={form.phone}
               onChange={handleChange}
               placeholder={formConfig.phonePlaceholder}
-              className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition ${
-                errors.phone ? "border-red-400 bg-red-50" : "border-gray-300"
-              }`}
+              className={`${inputBase} ${errors.phone ? inputErr : inputOk}`}
             />
-            {errors.phone && (
-              <p className="mt-1.5 text-sm text-red-600">{errors.phone}</p>
-            )}
+            {errors.phone ? (
+              <p className="mt-1.5 text-sm text-crimson">{errors.phone}</p>
+            ) : null}
           </div>
 
-          {/* Mensaje */}
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-ivory mb-2">
               Mensaje
             </label>
             <textarea
@@ -184,33 +173,31 @@ export default function ContactForm() {
               value={form.message}
               onChange={handleChange}
               placeholder={formConfig.messagePlaceholder}
-              className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition resize-none ${
-                errors.message ? "border-red-400 bg-red-50" : "border-gray-300"
-              }`}
+              className={`${inputBase} resize-none ${errors.message ? inputErr : inputOk}`}
             />
-            {errors.message && (
-              <p className="mt-1.5 text-sm text-red-600">{errors.message}</p>
-            )}
+            {errors.message ? (
+              <p className="mt-1.5 text-sm text-crimson">{errors.message}</p>
+            ) : null}
           </div>
 
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full py-3.5 bg-black text-white font-medium rounded-full hover:bg-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3.5 bg-crimson text-ivory font-medium rounded-full hover:bg-orange transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === "loading" ? formConfig.sendingButton : formConfig.submitButton}
           </button>
 
-          {status === "success" && (
-            <p className="text-center text-green-600 font-medium">
+          {status === "success" ? (
+            <p className="text-center text-teal-mid font-medium font-serif">
               {formConfig.successMessage}
             </p>
-          )}
-          {status === "error" && (
-            <p className="text-center text-red-600 font-medium">
+          ) : null}
+          {status === "error" ? (
+            <p className="text-center text-crimson font-medium">
               {serverError || formConfig.errorMessage}
             </p>
-          )}
+          ) : null}
         </form>
       </div>
     </section>

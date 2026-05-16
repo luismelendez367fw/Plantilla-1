@@ -1,21 +1,5 @@
-/**
- * PaymentButton — Boton de pago con PayPal
- * =========================================
- * Uso basico (en cualquier componente):
- *
- *   import PaymentButton from "@/components/PaymentButton";
- *   <PaymentButton />                   // usa el monto de site.js
- *   <PaymentButton amount={49} />       // monto personalizado en dolares
- *
- * Para activarlo:
- *   1. Edita src/config/site.js
- *   2. Cambia payment.enabled a true
- *   3. Escribe tu usuario de PayPal.me en payment.paypalMeUsername
- */
-
 import { siteConfig } from "@/config/site";
 
-// ─── Icono de PayPal (SVG simplificado) ───────────────────────────────────────
 function PayPalIcon() {
   return (
     <svg
@@ -29,19 +13,14 @@ function PayPalIcon() {
   );
 }
 
-// ─── Componente principal ─────────────────────────────────────────────────────
 export default function PaymentButton({ amount, className = "" }) {
   const { enabled, paypalMeUsername, defaultAmount, currency, buttonText } =
     siteConfig.payment;
 
-  // Si el pago no esta habilitado o falta el usuario, no mostrar nada
   if (!enabled || !paypalMeUsername) return null;
 
   const finalAmount = amount ?? defaultAmount;
 
-  // Construir la URL de PayPal.me
-  // Con monto:    https://www.paypal.me/usuario/29USD
-  // Sin monto:   https://www.paypal.me/usuario  (el comprador elige cuanto pagar)
   const paypalUrl =
     finalAmount > 0
       ? `https://www.paypal.me/${paypalMeUsername}/${finalAmount}${currency}`
@@ -52,43 +31,10 @@ export default function PaymentButton({ amount, className = "" }) {
       href={paypalUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex items-center justify-center gap-2.5 px-6 py-3 bg-black hover:bg-gray-900 active:bg-gray-950 text-white font-medium rounded-full transition-colors ${className}`}
+      className={`flex items-center justify-center gap-2.5 px-6 py-3 bg-crimson hover:bg-orange active:bg-orange/90 text-ivory font-medium rounded-full transition-colors ${className}`}
     >
       <PayPalIcon />
       {buttonText}
     </a>
   );
 }
-
-/*
- * ─── INTEGRACION AVANZADA CON PAYPAL CHECKOUT SDK ────────────────────────────
- *
- * Cuando el alumno quiera cobrar directamente en la pagina (sin redirigir a PayPal.me),
- * puede usar el SDK oficial de PayPal. Pasos:
- *
- * 1. Crea una app en https://developer.paypal.com/dashboard/applications
- * 2. Copia el "Client ID" de la app
- * 3. Agrega en .env.local:
- *      NEXT_PUBLIC_PAYPAL_CLIENT_ID=AQ...
- * 4. Instala el paquete:
- *      npm install @paypal/react-paypal-js
- * 5. Reemplaza este componente con algo similar a:
- *
- *   import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
- *
- *   export default function PaymentButton({ amount }) {
- *     return (
- *       <PayPalScriptProvider options={{ clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID }}>
- *         <PayPalButtons
- *           createOrder={(data, actions) =>
- *             actions.order.create({ purchase_units: [{ amount: { value: String(amount) } }] })
- *           }
- *           onApprove={(data, actions) => actions.order.capture()}
- *         />
- *       </PayPalScriptProvider>
- *     );
- *   }
- *
- * Documentacion: https://developer.paypal.com/sdk/js/
- * ─────────────────────────────────────────────────────────────────────────────
- */

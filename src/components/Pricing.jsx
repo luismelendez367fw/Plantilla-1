@@ -1,7 +1,7 @@
 import { siteConfig } from "@/config/site";
 import PaymentButton from "@/components/PaymentButton";
+import ChevronDivider from "@/components/brand/ChevronDivider";
 
-/** Monto numérico del texto de precio (ej. "$29" → 29). Para PayPal.me con monto prefijado. */
 function priceToAmount(priceStr) {
   const n = parseFloat(String(priceStr).replace(/[^\d.]/g, ""));
   return Number.isFinite(n) ? n : 0;
@@ -19,16 +19,19 @@ function planCtaHref(plan) {
 }
 
 export default function Pricing() {
-  const { heading, subheading, plans } = siteConfig.pricing;
+  const { heading, subheading, plans, priceLabel } = siteConfig.pricing;
+  const showPaypalCtas =
+    siteConfig.payment.enabled && siteConfig.payment.paypalMeUsername;
 
   return (
-    <section id="pricing" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="pricing" className="py-20 px-6 grain">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <ChevronDivider className="text-teal-mid mb-8" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ivory mb-4 tracking-wide">
             {heading}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="font-serif text-lg text-sand max-w-2xl mx-auto">
             {subheading}
           </p>
         </div>
@@ -36,50 +39,35 @@ export default function Pricing() {
           {plans.map((plan, index) => {
             const ctaHref = planCtaHref(plan);
             const isExternalPaypal = ctaHref.startsWith("http");
-            const showPaypalCtas =
-              siteConfig.payment.enabled && siteConfig.payment.paypalMeUsername;
             return (
               <div
                 key={index}
-                className={`rounded-2xl p-8 border ${
+                className={`rounded-2xl p-8 border transition-all duration-300 ${
                   plan.highlighted
-                    ? "border-indigo-600 bg-indigo-600 text-white shadow-xl scale-105"
-                    : "border-gray-200 bg-white"
+                    ? "border-orange bg-teal-dark text-ivory shadow-[0_0_32px_rgba(233,108,26,0.2)] md:scale-105"
+                    : "border-teal-mid/30 bg-carbon/80 text-ivory"
                 }`}
               >
-                <h3
-                  className={`text-lg font-semibold mb-1 ${
-                    plan.highlighted ? "text-indigo-100" : "text-gray-900"
-                  }`}
-                >
+                <h3 className="font-display text-lg font-semibold mb-1">
                   {plan.name}
                 </h3>
-                <p
-                  className={`text-sm mb-6 ${
-                    plan.highlighted ? "text-indigo-200" : "text-gray-500"
-                  }`}
-                >
+                <p className="text-sm mb-6 font-serif text-sand">
                   {plan.description}
                 </p>
+                <p className="text-xs uppercase tracking-widest text-teal-mid mb-1">
+                  {priceLabel}
+                </p>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  <span
-                    className={`text-sm ${
-                      plan.highlighted ? "text-indigo-200" : "text-gray-500"
-                    }`}
-                  >
-                    {plan.period}
+                  <span className="text-4xl font-display font-semibold">
+                    {plan.price}
                   </span>
+                  <span className="text-sm text-sand">{plan.period}</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm">
+                    <li key={i} className="flex items-center gap-3 text-sm font-serif">
                       <svg
-                        className={`w-5 h-5 shrink-0 ${
-                          plan.highlighted
-                            ? "text-indigo-200"
-                            : "text-indigo-600"
-                        }`}
+                        className="w-5 h-5 shrink-0 text-teal-mid"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -105,11 +93,7 @@ export default function Pricing() {
                     href={ctaHref}
                     target={isExternalPaypal ? "_blank" : undefined}
                     rel={isExternalPaypal ? "noopener noreferrer" : undefined}
-                    className={`block w-full py-3 text-center rounded-full font-medium transition-colors ${
-                      plan.highlighted
-                        ? "bg-white text-black hover:bg-gray-100"
-                        : "bg-black text-white hover:bg-gray-900"
-                    }`}
+                    className="block w-full py-3 text-center rounded-full font-medium bg-crimson text-ivory hover:bg-orange transition-colors"
                   >
                     {plan.cta}
                   </a>
