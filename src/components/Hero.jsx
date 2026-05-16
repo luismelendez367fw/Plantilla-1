@@ -19,13 +19,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={ctaPrimaryUrl}
-            className="w-full sm:w-auto px-8 py-3.5 bg-indigo-600 text-white font-medium rounded-full hover:bg-indigo-700 transition-colors text-center"
+            className="w-full sm:w-auto px-8 py-3.5 bg-black text-white font-medium rounded-full hover:bg-gray-900 transition-colors text-center"
           >
             {ctaPrimary}
           </a>
           <a
             href={ctaSecondaryUrl}
-            className="w-full sm:w-auto px-8 py-3.5 border border-gray-300 text-gray-700 font-medium rounded-full hover:border-indigo-300 hover:text-indigo-600 transition-colors text-center"
+            className="w-full sm:w-auto px-8 py-3.5 border border-gray-900 text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-colors text-center"
           >
             {ctaSecondary}
           </a>

@@ -1,8 +1,11 @@
 import { siteConfig } from "@/config/site";
+import PaymentButton from "@/components/PaymentButton";
 
 export default function Footer() {
   const { name } = siteConfig;
   const { tagline, links, copyright } = siteConfig.footer;
+  const showPayment =
+    siteConfig.payment.enabled && siteConfig.payment.paypalMeUsername;
 
   return (
     <footer className="border-t border-gray-200 py-12 px-6">
@@ -29,6 +32,12 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} {name}. {copyright}
         </p>
       </div>
+
+      {showPayment ? (
+        <div className="max-w-6xl mx-auto flex justify-center mt-8 pt-8 border-t border-gray-200">
+          <PaymentButton />
+        </div>
+      ) : null}
     </footer>
   );
 }

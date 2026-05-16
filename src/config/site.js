@@ -29,7 +29,7 @@ export const siteConfig = {
     // Enlace del boton principal. Puedes poner una URL de Calendly o Google Calendar.
     // Ejemplo Calendly: "https://calendly.com/tu-usuario/30min"
     // Ejemplo Google Calendar: "https://calendar.google.com/calendar/appointments/..."
-    ctaPrimaryUrl: "#contacto",
+    ctaPrimaryUrl: "#contact",
     ctaSecondaryUrl: "#features",
   },
 
@@ -184,11 +184,11 @@ export const siteConfig = {
   // ─────────────────────────────────────────────
   nav: {
     links: [
-      { label: "Inicio", href: "#inicio" },
+      { label: "Inicio", href: "#hero" },
       { label: "Features", href: "#features" },
-      { label: "Precios", href: "#precios" },
+      { label: "Precios", href: "#pricing" },
       { label: "FAQ", href: "#faq" },
-      { label: "Contacto", href: "#contacto" },
+      { label: "Contacto", href: "#contact" },
     ],
   },
 
@@ -198,10 +198,10 @@ export const siteConfig = {
   footer: {
     tagline: "Hecho con Next.js y mucho cafe.",
     links: [
-      { label: "Inicio", href: "#inicio" },
+      { label: "Inicio", href: "#hero" },
       { label: "Features", href: "#features" },
-      { label: "Precios", href: "#precios" },
-      { label: "Contacto", href: "#contacto" },
+      { label: "Precios", href: "#pricing" },
+      { label: "Contacto", href: "#contact" },
     ],
     copyright: "Todos los derechos reservados.",
   },
@@ -222,7 +222,7 @@ export const siteConfig = {
   // Estos valores son documentacion. Para cambiar colores en Tailwind v4,
   // edita el archivo src/app/globals.css y modifica las variables CSS.
   colors: {
-    primary: "indigo-600",    // Color principal (botones, acentos)
+    primary: "black",         // Botones solidos principales (Tailwind: bg-black)
     secondary: "gray-900",    // Color de textos principales
     accent: "indigo-50",      // Fondos suaves y badges
     background: "white",      // Fondo general
@@ -233,14 +233,14 @@ export const siteConfig = {
   // ─────────────────────────────────────────────
   payment: {
     // Cambia enabled a true cuando tengas tu cuenta de PayPal lista
-    enabled: false,
+    enabled: true,
     // Tu nombre de usuario de PayPal.me
     // Para obtenerlo: ve a paypal.com > Perfil > Configura tu link PayPal.me
     // Ejemplo: si tu link es paypal.me/juanperez, escribe "juanperez"
-    paypalMeUsername: "",
-    // Monto sugerido en dolares. Pon 0 para que el comprador elija cuanto pagar.
+    paypalMeUsername: "luismelendezibarra",
+    // Monto sugerido en la moneda configurada abajo. Pon 0 para que el comprador elija cuanto pagar.
     defaultAmount: 0,
-    currency: "USD",
+    currency: "MXN",
     buttonText: "Pagar con PayPal",
   },
 

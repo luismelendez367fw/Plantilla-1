@@ -94,7 +94,7 @@ export default function ContactForm() {
               href={schedulingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-4 px-6 py-2.5 border border-indigo-600 text-indigo-600 font-medium rounded-full hover:bg-indigo-50 transition-colors text-sm"
+              className="inline-block mt-4 px-6 py-2.5 border border-black text-black font-medium rounded-full hover:bg-gray-100 transition-colors text-sm"
             >
               {schedulingCta}
             </a>
@@ -196,7 +196,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full py-3.5 bg-indigo-600 text-white font-medium rounded-full hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3.5 bg-black text-white font-medium rounded-full hover:bg-gray-900 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === "loading" ? formConfig.sendingButton : formConfig.submitButton}
           </button>
