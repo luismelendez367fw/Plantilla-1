@@ -6,8 +6,6 @@ export default function EventsSection() {
   return (
     <section id="events" className="py-20 px-6 bg-teal-dark/50 grain">
       <div className="max-w-4xl mx-auto relative z-10">
-        <motionGlow className="hidden" />
-        <motionGlow className="hidden" />
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-ivory mb-4 tracking-wide">
             {heading}

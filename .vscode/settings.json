@@ -1,0 +1,6 @@
+{
+  "npm.packageManager": "yarn",
+  "npm.enableRunFromFolder": true,
+  "npm.autoDetect": "off",
+  "task.autoDetect": "off"
+}

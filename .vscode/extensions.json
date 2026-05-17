@@ -1,0 +1,7 @@
+{
+  "unwantedRecommendations": [
+    "fill-labs.dependi",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense"
+  ]
+}
