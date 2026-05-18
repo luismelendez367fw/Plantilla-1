@@ -180,7 +180,7 @@ export const siteConfig = {
     subheading:
       "Agenda tu sesión o taller y asegura tu lugar con un anticipo. Tu cuerpo ya sabe que es momento.",
     schedulingCta: "Ver disponibilidad",
-    schedulingUrl: "",
+    schedulingUrl: "https://calendar.app.google/Sx3izVd9wZYsSHax9",
     depositNote: "Anticipo requerido para confirmar tu reserva",
   },
 
