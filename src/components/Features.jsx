@@ -1,23 +1,19 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import LeafIcon from "@/components/brand/LeafIcon";
 import ChevronDivider from "@/components/brand/ChevronDivider";
 
-const iconMap = {
-  leaf: <LeafIcon className="w-6 h-6" />,
-};
-
 export default function Features() {
-  const { heading, subheading, items } = siteConfig.features;
+  const { heading, subheading, iconImage, items } = siteConfig.features;
 
   return (
-    <section id="features" className="py-20 px-6 bg-teal-dark grain">
+    <section id="features" className="py-20 px-6">
       <div className="relative max-w-6xl mx-auto z-10">
         <div className="text-center mb-12">
-          <ChevronDivider className="text-teal-mid mb-8" />
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ivory mb-4 tracking-wide">
+          <ChevronDivider className="mb-8" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-carbon mb-4 tracking-wide">
             {heading}
           </h2>
-          <p className="font-serif text-lg text-sand max-w-2xl mx-auto">
+          <p className="font-serif text-lg text-carbon/70 max-w-2xl mx-auto">
             {subheading}
           </p>
         </div>
@@ -25,15 +21,23 @@ export default function Features() {
           {items.map((feature, index) => (
             <div
               key={index}
-              className="bg-carbon/60 backdrop-blur-sm p-8 rounded-2xl border border-teal-mid/30 hover:border-crimson/60 hover:shadow-[0_0_24px_rgba(214,24,62,0.15)] transition-all duration-300"
+              className="card-surface p-8 rounded-2xl hover:border-crimson/40 hover:shadow-[0_4px_24px_rgba(214,24,62,0.12)] transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-teal-mid/20 text-teal-mid rounded-xl flex items-center justify-center mb-5">
-                {iconMap[feature.icon] ?? iconMap.leaf}
-              </div>
-              <h3 className="font-display text-xl font-semibold text-ivory mb-3">
+              {iconImage ? (
+                <div className="mb-5 flex h-12 w-12 items-center justify-center">
+                  <Image
+                    src={iconImage}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="h-10 w-10 object-contain brightness-0 opacity-85"
+                  />
+                </div>
+              ) : null}
+              <h3 className="font-display text-xl font-semibold text-carbon mb-3">
                 {feature.title}
               </h3>
-              <p className="text-sand leading-relaxed font-serif">
+              <p className="text-carbon/75 leading-relaxed font-serif">
                 {feature.description}
               </p>
             </div>

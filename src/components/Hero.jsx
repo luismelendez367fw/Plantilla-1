@@ -1,11 +1,12 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import Mandala from "@/components/brand/Mandala";
 
 export default function Hero() {
+  const { name, tagline } = siteConfig;
   const {
-    badge,
-    title,
-    titleHighlight,
+    backgroundImage,
+    brandingImage,
+    ctaPanelImage,
     subtitle,
     ctaPrimary,
     ctaSecondary,
@@ -14,49 +15,58 @@ export default function Hero() {
   } = siteConfig.hero;
 
   return (
-    <section
-      id="hero"
-      className="relative pt-32 pb-24 px-6 overflow-hidden hero-cosmic-bg"
-    >
-      <motionGlow className="-top-32 left-1/4 bg-crimson/20" />
-      <motionGlow className="-top-20 right-1/4 bg-orange/15" />
-      <motionGlow className="bottom-0 left-1/2 -translate-x-1/2 bg-teal-mid/10" />
+    <section id="hero" className="relative overflow-hidden hero-encabezado">
+      <Image
+        src={backgroundImage}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="hero-encabezado__vignette" aria-hidden="true" />
 
-      <div className="relative max-w-4xl mx-auto text-center z-10">
-        <Mandala className="w-14 h-14 mx-auto mb-6 text-teal-mid" />
-        <span className="inline-block px-4 py-1.5 mb-6 text-xs font-medium tracking-widest uppercase text-sand border border-teal-mid/40 rounded-full">
-          {badge}
-        </span>
-        <h1 className="font-display text-5xl md:text-7xl font-semibold text-ivory leading-tight mb-2 tracking-wide">
-          {title}
-        </h1>
-        <p className="font-display text-4xl md:text-6xl gradient-cosmic-text font-semibold mb-8 tracking-wide">
-          {titleHighlight}
-        </p>
-        <p className="font-serif text-lg md:text-xl text-sand max-w-2xl mx-auto mb-10 leading-relaxed">
-          {subtitle}
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href={ctaPrimaryUrl} className="btn-primary w-full sm:w-auto text-center">
-            {ctaPrimary}
-          </a>
-          <a
-            href={ctaSecondaryUrl}
-            className="btn-secondary w-full sm:w-auto text-center"
-          >
-            {ctaSecondary}
-          </a>
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-10 md:pt-28 md:pb-14">
+        <Image
+          src={brandingImage}
+          alt={`${name} — ${tagline}`}
+          width={780}
+          height={570}
+          priority
+          className="w-full max-w-[min(100%,33rem)] sm:max-w-[30rem] md:max-w-[36rem] h-auto drop-shadow-sm"
+        />
+      </div>
+
+      <div className="relative z-10 px-6 pb-14 md:pb-16">
+        <div className="max-w-2xl mx-auto hero-encabezado__cta-panel rounded-2xl overflow-hidden relative">
+          <Image
+            src={ctaPanelImage}
+            alt=""
+            fill
+            sizes="(max-width: 672px) 100vw, 672px"
+            className="object-cover object-[center_30%]"
+          />
+          <div className="relative z-10 px-6 py-8 text-center">
+            <p className="font-serif text-base md:text-lg text-ivory leading-relaxed mb-8 drop-shadow-[0_1px_10px_rgba(35,31,32,0.85)]">
+              {subtitle}
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={ctaPrimaryUrl}
+                className="btn-primary w-full sm:w-auto text-center shadow-md"
+              >
+                {ctaPrimary}
+              </a>
+              <a
+                href={ctaSecondaryUrl}
+                className="btn-secondary hero-encabezado__btn-secondary w-full sm:w-auto text-center"
+              >
+                {ctaSecondary}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function motionGlow({ className = "" }) {
-  return (
-    <div
-      className={`pointer-events-none absolute w-96 h-96 rounded-full blur-3xl ${className}`}
-      aria-hidden="true"
-    />
   );
 }

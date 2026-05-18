@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className="scroll-smooth">
       <body
-        className={`${dmSans.variable} ${cormorantUnicase.variable} ${cormorantGaramond.variable} font-sans antialiased bg-carbon text-ivory`}
+        className={`${dmSans.variable} ${cormorantUnicase.variable} ${cormorantGaramond.variable} font-sans antialiased bg-parchment text-carbon`}
       >
         {children}
       </body>

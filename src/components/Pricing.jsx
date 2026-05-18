@@ -24,14 +24,14 @@ export default function Pricing() {
     siteConfig.payment.enabled && siteConfig.payment.paypalMeUsername;
 
   return (
-    <section id="pricing" className="py-20 px-6 grain">
+    <section id="pricing" className="py-20 px-6">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <ChevronDivider className="text-teal-mid mb-8" />
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ivory mb-4 tracking-wide">
+          <ChevronDivider className="mb-8" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-carbon mb-4 tracking-wide">
             {heading}
           </h2>
-          <p className="font-serif text-lg text-sand max-w-2xl mx-auto">
+          <p className="font-serif text-lg text-carbon/70 max-w-2xl mx-auto">
             {subheading}
           </p>
         </div>
@@ -45,23 +45,31 @@ export default function Pricing() {
                 className={`rounded-2xl p-8 border transition-all duration-300 ${
                   plan.highlighted
                     ? "border-orange bg-teal-dark text-ivory shadow-[0_0_32px_rgba(233,108,26,0.2)] md:scale-105"
-                    : "border-teal-mid/30 bg-carbon/80 text-ivory"
+                    : "border-teal-mid/30 card-surface text-carbon"
                 }`}
               >
                 <h3 className="font-display text-lg font-semibold mb-1">
                   {plan.name}
                 </h3>
-                <p className="text-sm mb-6 font-serif text-sand">
+                <p
+                  className={`text-sm mb-6 font-serif ${
+                    plan.highlighted ? "text-sand" : "text-carbon/70"
+                  }`}
+                >
                   {plan.description}
                 </p>
                 <p className="text-xs uppercase tracking-widest text-teal-mid mb-1">
-                  {priceLabel}
+                  {plan.priceLabel ?? priceLabel}
                 </p>
                 <div className="mb-6">
                   <span className="text-4xl font-display font-semibold">
                     {plan.price}
                   </span>
-                  <span className="text-sm text-sand">{plan.period}</span>
+                  <span
+                    className={`text-sm ${plan.highlighted ? "text-sand" : "text-carbon/60"}`}
+                  >
+                    {plan.period}
+                  </span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (

@@ -1,25 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
-import Mandala from "@/components/brand/Mandala";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { name } = siteConfig;
-  const { links, ctaLabel, ctaHref } = siteConfig.nav;
+  const { links, ctaLabel, ctaHref, logoImage } = siteConfig.nav;
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 72);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const headerShell = scrolled
+    ? "bg-carbon/90 backdrop-blur-md border-b border-teal-mid/20"
+    : "bg-transparent";
+  const navText = scrolled
+    ? "text-sand hover:text-ivory"
+    : "text-carbon/80 hover:text-carbon drop-shadow-sm";
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-carbon/85 backdrop-blur-md border-b border-teal-mid/20">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        <a
-          href="#hero"
-          className="flex items-center gap-2.5 text-ivory shrink-0"
-        >
-          <Mandala className="w-8 h-8 text-teal-mid" />
-          <span className="font-display text-lg font-semibold tracking-wide hidden sm:inline">
-            {name}
-          </span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${headerShell}`}
+    >
+      <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+        <a href="#hero" className="shrink-0 block">
+          <Image
+            src={logoImage}
+            alt={name}
+            width={280}
+            height={96}
+            priority
+            className="header-logo h-18 sm:h-20 w-auto"
+          />
         </a>
 
         <ul className="hidden lg:flex items-center gap-6">
@@ -27,7 +44,7 @@ export default function Header() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-sand hover:text-ivory transition-colors"
+                className={`text-sm transition-colors ${navText}`}
               >
                 {link.label}
               </a>
@@ -43,7 +60,7 @@ export default function Header() {
             {ctaLabel}
           </a>
           <button
-            className="lg:hidden p-2 text-sand hover:text-ivory"
+            className={`lg:hidden p-2 transition-colors ${navText}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Abrir menú"
           >
@@ -59,12 +76,18 @@ export default function Header() {
       </nav>
 
       {menuOpen && (
-        <ul className="lg:hidden bg-carbon border-b border-teal-mid/20 px-6 pb-4 space-y-3">
+        <ul
+          className={`lg:hidden border-b px-6 pb-4 space-y-3 ${
+            scrolled
+              ? "bg-carbon border-teal-mid/20"
+              : "bg-ivory/95 backdrop-blur-md border-carbon/10 shadow-lg"
+          }`}
+        >
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block text-sm text-sand hover:text-ivory transition-colors"
+                className={`block text-sm transition-colors ${navText}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

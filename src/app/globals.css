@@ -6,9 +6,10 @@
   --color-orange: #e96c1a;
   --color-teal-mid: #318b89;
   --color-carbon: #231f20;
-  --color-bg: #231f20;
-  --color-text: #f5f0eb;
-  --color-text-muted: #a89f96;
+  --color-parchment: #e8e0d4;
+  --color-bg: #e8e0d4;
+  --color-text: #231f20;
+  --color-text-muted: #5c534c;
   --gradient-cosmic: linear-gradient(
     135deg,
     #d6183e 0%,
@@ -33,13 +34,41 @@
   --color-orange: #e96c1a;
   --color-teal-mid: #318b89;
   --color-carbon: #231f20;
+  --color-parchment: #e8e0d4;
   --color-ivory: #f5f0eb;
   --color-sand: #a89f96;
 }
 
 body {
-  background-color: var(--color-carbon);
+  background-color: var(--color-parchment);
   color: var(--color-text);
+}
+
+.section-paper {
+  position: relative;
+  background-color: var(--color-parchment);
+  color: var(--color-carbon);
+}
+
+.section-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.section-paper > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-surface {
+  background: rgba(245, 240, 235, 0.82);
+  border: 1px solid rgba(35, 31, 32, 0.1);
+  box-shadow: 0 4px 20px rgba(35, 31, 32, 0.06);
 }
 
 .font-display {
@@ -61,6 +90,62 @@ body {
   background: var(--gradient-hero);
 }
 
+.hero-encabezado {
+  display: flex;
+  flex-direction: column;
+  min-height: min(92vh, 56rem);
+}
+
+.hero-encabezado__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 90% 70% at 50% 42%,
+      transparent 35%,
+      rgba(35, 31, 32, 0.25) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(35, 31, 32, 0.15) 0%,
+      transparent 28%,
+      rgba(35, 31, 32, 0.45) 100%
+    );
+}
+
+.hero-encabezado__cta-panel {
+  border: 1px solid rgba(245, 240, 235, 0.25);
+  box-shadow: 0 12px 40px rgba(35, 31, 32, 0.28);
+}
+
+.hero-encabezado__btn-secondary {
+  border-color: rgba(245, 240, 235, 0.75);
+  color: var(--color-ivory);
+  background: rgba(35, 31, 32, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.hero-encabezado__btn-secondary:hover {
+  background: rgba(35, 31, 32, 0.35);
+}
+
+.header-logo {
+  filter: grayscale(1) brightness(4) contrast(1.1);
+  mix-blend-mode: lighten;
+}
+
+.brand-divider {
+  filter: grayscale(1) brightness(2.2) sepia(0.35) saturate(4) hue-rotate(128deg);
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+}
+
+.brand-gallery-card {
+  position: relative;
+}
+
 .section-gradient-line {
   height: 1px;
   background: var(--gradient-cosmic);
@@ -74,9 +159,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.05;
+  opacity: 0.12;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
 }
 
 .btn-primary {
@@ -84,5 +170,9 @@ body {
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-8 py-3.5 border border-teal-mid text-ivory font-medium rounded-full transition-colors hover:bg-teal-dark/50;
+  @apply inline-flex items-center justify-center px-8 py-3.5 border border-teal-mid text-carbon font-medium rounded-full transition-colors hover:bg-teal-mid/15;
+}
+
+.footer-logo {
+  filter: invert(1);
 }

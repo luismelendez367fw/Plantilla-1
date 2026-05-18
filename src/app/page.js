@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import Features from "@/components/Features";
+import BrandGallery from "@/components/BrandGallery";
 import Pricing from "@/components/Pricing";
 import EventsSection from "@/components/EventsSection";
 import StoreSection from "@/components/StoreSection";
@@ -16,10 +17,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
-        <Hero />
+      <Hero />
+      <main className="section-paper">
         <AboutSection />
         <Features />
+        <BrandGallery />
         <Pricing />
         <EventsSection />
         <StoreSection />
@@ -29,7 +31,7 @@ export default function Home() {
         <FAQ />
         <ContactForm />
       </main>
-      <Footer />
+      <Footer className="section-paper border-t border-carbon/10" />
     </>
   );
 }

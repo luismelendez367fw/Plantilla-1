@@ -8,7 +8,7 @@ function isValidEmail(email) {
 }
 
 const inputBase =
-  "w-full px-4 py-3 bg-carbon border rounded-xl text-ivory placeholder:text-sand/60 focus:outline-none focus:ring-2 focus:ring-teal-mid focus:border-transparent transition";
+  "w-full px-4 py-3 bg-ivory/90 border rounded-xl text-carbon placeholder:text-carbon/45 focus:outline-none focus:ring-2 focus:ring-teal-mid focus:border-transparent transition";
 const inputOk = "border-teal-mid/40";
 const inputErr = "border-crimson/60 bg-crimson/5";
 
@@ -84,16 +84,16 @@ export default function ContactForm() {
     <section id="contact" className="py-20 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold text-ivory mb-4 tracking-wide">
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-carbon mb-4 tracking-wide">
             {heading}
           </h2>
-          <p className="font-serif text-lg text-sand">{subheading}</p>
+          <p className="font-serif text-lg text-carbon/70">{subheading}</p>
           {schedulingUrl ? (
             <a
               href={schedulingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-4 px-6 py-2.5 border border-teal-mid text-ivory font-medium rounded-full hover:bg-teal-dark/50 transition-colors text-sm"
+              className="inline-block mt-4 px-6 py-2.5 border border-teal-mid text-carbon font-medium rounded-full hover:bg-teal-mid/15 transition-colors text-sm"
             >
               {schedulingCta}
             </a>
@@ -103,10 +103,10 @@ export default function ContactForm() {
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="bg-teal-dark/30 border border-teal-mid/30 rounded-2xl p-8 space-y-6"
+          className="card-surface rounded-2xl p-8 space-y-6"
         >
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-ivory mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-carbon mb-2">
               Nombre
             </label>
             <input
@@ -124,7 +124,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-ivory mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-carbon mb-2">
               Email
             </label>
             <input
@@ -142,10 +142,10 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-ivory mb-2">
+            <label htmlFor="phone" className="block text-sm font-medium text-carbon mb-2">
               Teléfono
               {!formConfig.phoneRequired ? (
-                <span className="ml-1.5 text-sand font-normal">(opcional)</span>
+                <span className="ml-1.5 text-carbon/55 font-normal">(opcional)</span>
               ) : null}
             </label>
             <input
@@ -163,7 +163,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-ivory mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-carbon mb-2">
               Mensaje
             </label>
             <textarea

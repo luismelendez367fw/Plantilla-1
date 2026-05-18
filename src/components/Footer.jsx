@@ -1,25 +1,31 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import Monogram from "@/components/brand/Monogram";
 
-export default function Footer() {
+export default function Footer({ className = "" }) {
   const { name } = siteConfig;
-  const { tagline, links, copyright, social } = siteConfig.footer;
+  const { tagline, logoImage, links, copyright, social } = siteConfig.footer;
   const { email, phone, address } = siteConfig.contact;
 
   return (
-    <footer className="relative border-t border-transparent pt-16 pb-12 px-6 overflow-hidden">
+    <footer
+      className={`relative pt-16 pb-12 px-6 overflow-hidden ${className}`.trim()}
+    >
       <div className="section-gradient-line mb-12 max-w-6xl mx-auto" />
-      <Monogram className="absolute bottom-8 right-8 w-40 h-16 text-ivory pointer-events-none hidden md:block" />
+      <Monogram className="absolute bottom-8 right-8 w-40 h-16 text-carbon/15 pointer-events-none hidden md:block" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           <div>
-            <span className="font-display text-xl font-semibold text-ivory tracking-wide">
-              {name}
-            </span>
-            <p className="font-serif italic text-sand mt-2">{tagline}</p>
+            <Image
+              src={logoImage}
+              alt={`${name} — ${tagline}`}
+              width={200}
+              height={130}
+              className="footer-logo w-36 sm:w-40 h-auto"
+            />
             {address ? (
-              <p className="text-sm text-sand mt-3">{address}</p>
+              <p className="text-sm text-carbon/70 mt-4">{address}</p>
             ) : null}
           </div>
 
@@ -28,7 +34,7 @@ export default function Footer() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-sand hover:text-ivory transition-colors"
+                  className="text-sm text-carbon/70 hover:text-carbon transition-colors"
                 >
                   {link.label}
                 </a>
@@ -36,9 +42,9 @@ export default function Footer() {
             ))}
           </ul>
 
-          <div className="md:text-right text-sm text-sand space-y-1">
+          <div className="md:text-right text-sm text-carbon/70 space-y-1">
             {email ? (
-              <a href={`mailto:${email}`} className="block hover:text-ivory">
+              <a href={`mailto:${email}`} className="block hover:text-carbon">
                 {email}
               </a>
             ) : null}
@@ -61,7 +67,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="text-sm text-sand/70 text-center">
+        <p className="text-sm text-carbon/60 text-center">
           &copy; {new Date().getFullYear()} {name}. {copyright}
         </p>
       </div>

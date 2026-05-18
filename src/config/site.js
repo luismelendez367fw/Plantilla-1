@@ -9,12 +9,17 @@ export const siteConfig = {
   description:
     "Coach y Terapeuta Corporal en Chihuahua. Cursos, talleres y terapias de inteligencia emocional para sanar el cuerpo gestionando las emociones.",
 
+  brand: {
+    dividerImage: "/brand/lm_elementos-10.png",
+  },
+
   hero: {
-    badge: "Chihuahua, Chih. · Presencial y online",
-    title: "Mueve tu cuerpo.",
-    titleHighlight: "Sana tu alma.",
+    backgroundImage:
+      "/encabezado/textura-degradado-abstracto-luces-suaves-cosmicas.jpg",
+    brandingImage: "/encabezado/lm_elementos-01.png",
+    ctaPanelImage: "/encabezado/espalda.jpg",
     subtitle:
-      "Coach y Terapeuta Corporal en Chihuahua · Cursos, talleres y terapias de inteligencia emocional",
+      "Coach y Terapeuta Corporal en Chihuahua - Terapia individual, cursos y talleres de salud física y sanación integral desde la inteligencia emocional.",
     ctaPrimary: "Reserva tu lugar",
     ctaSecondary: "Conoce los servicios",
     ctaPrimaryUrl: "#booking",
@@ -24,6 +29,7 @@ export const siteConfig = {
   about: {
     heading: "Quién soy",
     subheading: "Cuerpo, emoción y presencia sagrada",
+    image: "/sobre mi/uno-8.jpg",
     paragraphs: [
       "Soy Luis Meléndez, coach y terapeuta corporal. Acompaño a personas que cargan estrés, fatiga o malestar en el cuerpo a encontrar un camino de sanación que no separa lo emocional de lo físico.",
       "Mi trabajo nace de la convicción de que el cuerpo guarda la memoria de lo que la mente no puede decir. A través de la inteligencia emocional, el movimiento consciente y espacios de ritual contemporáneo, abrimos puertas hacia el descanso, la confianza y la plenitud.",
@@ -35,24 +41,39 @@ export const siteConfig = {
     heading: "Servicios",
     subheading:
       "Terapias, talleres y cursos diseñados para que tu cuerpo respire y tu alma encuentre silencio.",
+    iconImage: "/brand/lm_elementos-09.png",
     items: [
       {
-        icon: "leaf",
         title: "Terapias Individuales",
         description:
           "Sesiones uno a uno de terapia corporal e inteligencia emocional. Un espacio seguro, intenso y confidencial para liberar tensiones y reconectar contigo.",
       },
       {
-        icon: "leaf",
         title: "Talleres Grupales",
         description:
           "Experiencias colectivas en Chihuahua donde el cuerpo, el grupo y el ritual se encuentran. Ideal para procesos de estrés, duelo o transición.",
       },
       {
-        icon: "leaf",
         title: "Cursos Online",
         description:
           "Formación a distancia en inteligencia emocional y sanación corporal. Aprende a tu ritmo con acompañamiento directo.",
+      },
+    ],
+  },
+
+  brandGallery: {
+    items: [
+      {
+        src: "/brand/post1-07.png",
+        alt: "Wellness — terapia corporal",
+      },
+      {
+        src: "/brand/post1-08.png",
+        alt: "Tu cuerpo es un canal de trascendencia",
+      },
+      {
+        src: "/brand/post1-01.png",
+        alt: "Mueve tu cuerpo, sana tu alma",
       },
     ],
   },
@@ -64,42 +85,43 @@ export const siteConfig = {
     priceLabel: "Inversión",
     plans: [
       {
-        name: "Sesión individual",
-        price: "$800",
+        name: "Masaje para el Alma",
+        price: "$1,250",
         period: " MXN",
-        description: "Terapia corporal personalizada",
+        description: "Terapia de Salud integral personalizada",
         features: [
           "Sesión de 90 minutos",
           "Evaluación corporal inicial",
           "Seguimiento por mensaje",
+          "Atiende cuerpo, emoción, mente y alma.",
         ],
         cta: "Reservar sesión",
         highlighted: false,
       },
       {
-        name: "Taller intensivo",
-        price: "$1,500",
+        name: "Masaje Relajante",
+        price: "$800",
         period: " MXN",
-        description: "Experiencia grupal de un día",
+        description: "Descanso, disfrute y bienestar",
         features: [
-          "Jornada completa presencial",
-          "Material de apoyo incluido",
-          "Grupo reducido",
-          "Ritual de cierre",
+          "Sesión de 60 minutos",
+          "Cuerpo completo",
+          "Musicoterapia y Aromaterapia",
+          "Relajación total",
         ],
         cta: "Inscribirme",
         highlighted: true,
       },
       {
-        name: "Curso online",
-        price: "$2,400",
+        name: "Talleres Online",
+        price: "$500",
         period: " MXN",
-        description: "Programa de 4 semanas",
+        priceLabel: "Anticipo",
+        description: "Sanación profunda y aprendizaje.",
         features: [
           "Acceso a módulos en video",
-          "Sesiones en vivo grupales",
-          "Comunidad privada",
-          "Certificado de participación",
+          "Seguimiento personalizado",
+          "Sesión individual personalizada",
         ],
         cta: "Comenzar curso",
         highlighted: false,
@@ -151,7 +173,7 @@ export const siteConfig = {
           "Mezcla artesanal para masaje y ceremonia. Notas cálidas, textura sedosa.",
         price: "$450 MXN",
         cta: "Pedir por WhatsApp",
-        ctaUrl: "#contact",
+        ctaUrl: "https://wa.me/message/CJ5JMAVYULOWK1",
         imageGradient: "from-teal-dark to-carbon",
       },
       {
@@ -160,7 +182,7 @@ export const siteConfig = {
           "Cera natural con esencia de sándalo. Para espacios de meditación y descanso.",
         price: "$280 MXN",
         cta: "Pedir por WhatsApp",
-        ctaUrl: "#contact",
+        ctaUrl: "https://wa.me/message/CJ5JMAVYULOWK1",
         imageGradient: "from-crimson/40 to-carbon",
       },
       {
@@ -169,7 +191,7 @@ export const siteConfig = {
           "Diario guiado para registrar emociones, sensaciones y rituales diarios.",
         price: "$320 MXN",
         cta: "Pedir por WhatsApp",
-        ctaUrl: "#contact",
+        ctaUrl: "https://wa.me/message/CJ5JMAVYULOWK1",
         imageGradient: "from-orange/30 to-teal-dark",
       },
     ],
@@ -189,9 +211,9 @@ export const siteConfig = {
     subheading: "Voces de quienes han caminado este proceso",
     items: [
       {
-        name: "María G.",
-        text: "Llegué con el cuerpo tenso y la mente agotada. En pocas sesiones sentí que algo antiguo se soltaba. No es terapia fría: es presencia, calor y verdad.",
-        role: "Terapia individual",
+        name: "Mary T.",
+        text: "Desde que vengo aquí he aprendido muchas cosas, por eso cada que puedo vengo a cursos, meditaciones porque me han ayudado mucho en conocerme a mí misma.",
+        role: "Cursos y Talleres",
       },
       {
         name: "Carlos R.",
@@ -199,9 +221,9 @@ export const siteConfig = {
         role: "Taller intensivo",
       },
       {
-        name: "Ana L.",
-        text: "El curso online me dio herramientas reales para manejar el estrés. Luis explica con claridad y profundidad. Mi cuerpo respira distinto.",
-        role: "Curso online",
+        name: "Eli L.",
+        text: "He aprendido mucho a conocerme, a saber qué quiero, a saber que tipo de vida quiero. Me han enseñado muchas herramientas que me han hecho ya no sentir que sobrevivo, sino que voy cumpliendo y viendo cómo lo puedo solucionar. Ha sido un crecimiento muy grande",
+        role: "Coaching y Talleres",
       },
     ],
   },
@@ -290,17 +312,19 @@ export const siteConfig = {
     },
     email: "luismelendez367@gmail.com",
     phone: "+52 614 610 9270",
-    whatsapp: "https://wa.me/526146109270",
+    whatsapp: "https://wa.me/message/CJ5JMAVYULOWK1",
     address: "Chihuahua, Chihuahua, México",
   },
 
   nav: {
+    logoImage: "/brand/ICONO LM (2).png",
     links: [
       { label: "Inicio", href: "#hero" },
       { label: "Servicios", href: "#features" },
       { label: "Eventos", href: "#events" },
       { label: "Tienda", href: "#store" },
       { label: "Blog", href: "#blog" },
+      { label: "Testimonios", href: "#testimonials" },
       { label: "Contacto", href: "#contact" },
     ],
     ctaLabel: "Reservar",
@@ -308,6 +332,7 @@ export const siteConfig = {
   },
 
   footer: {
+    logoImage: "/brand/lm_elementos-02.png",
     tagline: "wellness & fullness",
     links: [
       { label: "Inicio", href: "#hero" },
@@ -317,9 +342,15 @@ export const siteConfig = {
     ],
     copyright: "Todos los derechos reservados.",
     social: [
-      { label: "Instagram", href: "#" },
-      { label: "Facebook", href: "#" },
-      { label: "WhatsApp", href: "https://wa.me/526146109270" },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/luismelendezfw?igsh=MXZtY3doMmo3b25n&utm_source=qr",
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/share/1CcYxHQLzF/?mibextid=wwXIfr",
+      },
+      { label: "WhatsApp", href: "https://wa.me/message/CJ5JMAVYULOWK1" },
     ],
   },
 
@@ -335,6 +366,7 @@ export const siteConfig = {
     orange: "#E96C1A",
     tealMid: "#318B89",
     carbon: "#231F20",
+    parchment: "#E8E0D4",
     ivory: "#F5F0EB",
     sand: "#A89F96",
   },
