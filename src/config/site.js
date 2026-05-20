@@ -134,31 +134,20 @@ export const siteConfig = {
     subheading: "Encuentros, talleres y ceremonias del año",
     items: [
       {
-        day: "15",
-        month: "MAR",
-        title: "Ritual de equinoccio corporal",
-        description:
-          "Taller de un día para soltar el invierno emocional y abrir el cuerpo a la luz del nuevo ciclo.",
+        dateRange: "Todos los martes",
+        time: "7:00 pm",
+        title: "Meditación",
+        description: "Un espacio de conexión con tu consciencia superior",
         cta: "Inscribirme",
-        ctaUrl: "#contact",
+        ctaUrl: "https://wa.me/message/CJ5JMAVYULOWK1",
       },
       {
-        day: "22",
-        month: "ABR",
-        title: "Inteligencia emocional y descanso",
+        dateRange: "20 jul – 14 ago",
+        title: "Summer Camp 2026 - Soy humano, Soy esencia.",
         description:
-          "Sesión grupal para quienes viven con fatiga crónica o insomnio emocional.",
-        cta: "Reservar lugar",
-        ctaUrl: "#contact",
-      },
-      {
-        day: "10",
-        month: "JUN",
-        title: "Cuerpo sagrado · retiro de fin de semana",
-        description:
-          "Dos días de inmersión en Chihuahua: movimiento, silencio y terapia grupal.",
-        cta: "Más información",
-        ctaUrl: "#contact",
+          "Campamento de Verano para niños de 6 a 11 años de edad y Adolescentes de 12 a 17 años. Un lugar para conectar con su cuerpo, mente, emoción y alma para conocer la mejor versión de sí mismos.",
+        cta: "Inscribirme",
+        ctaUrl: "https://wa.me/message/CJ5JMAVYULOWK1",
       },
     ],
   },
@@ -168,13 +157,13 @@ export const siteConfig = {
     subheading: "Artículos especiales para tu ritual personal",
     items: [
       {
-        name: "Aceite ritual de copal",
+        name: "Aceite ritualizado",
         description:
-          "Mezcla artesanal para masaje y ceremonia. Notas cálidas, textura sedosa.",
-        price: "$450 MXN",
+          "Mezcla artesanal para masaje y uso diario. Distintas notas enfocadas en atender tu necesidad: Regeneración Celular, Descanso Profundo, Sanación Física, Liberación Emocional, Paz Mental y Conexión Profunda.",
+        price: "$500 MXN",
         cta: "Pedir por WhatsApp",
         ctaUrl: "https://wa.me/message/CJ5JMAVYULOWK1",
-        imageGradient: "from-teal-dark to-carbon",
+        image: "/tiendita/Aceite ritual.png",
       },
       {
         name: "Vela de presencia",

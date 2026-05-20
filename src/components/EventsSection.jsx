@@ -18,13 +18,28 @@ export default function EventsSection() {
               key={index}
               className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl card-surface hover:border-crimson/40 transition-colors"
             >
-              <div className="shrink-0 text-center sm:text-left sm:w-24">
-                <span className="font-display text-4xl font-bold text-crimson block leading-none">
-                  {event.day}
-                </span>
-                <span className="text-xs uppercase tracking-widest text-teal-mid">
-                  {event.month}
-                </span>
+              <div className="shrink-0 text-center sm:text-left sm:w-28">
+                {event.dateRange ? (
+                  <>
+                    <p className="font-display text-base sm:text-lg font-bold text-crimson leading-snug">
+                      {event.dateRange}
+                    </p>
+                    {event.time ? (
+                      <span className="mt-1 block text-sm font-medium text-teal-mid">
+                        {event.time}
+                      </span>
+                    ) : null}
+                  </>
+                ) : (
+                  <>
+                    <span className="font-display text-4xl font-bold text-crimson block leading-none">
+                      {event.day}
+                    </span>
+                    <span className="text-xs uppercase tracking-widest text-teal-mid">
+                      {event.month}
+                    </span>
+                  </>
+                )}
               </div>
               <div className="flex-1 border-t sm:border-t-0 sm:border-l border-teal-mid/30 pt-4 sm:pt-0 sm:pl-6">
                 <h3 className="font-display text-xl text-carbon mb-2">{event.title}</h3>
@@ -32,6 +47,9 @@ export default function EventsSection() {
                 <a
                   href={event.ctaUrl}
                   className="inline-flex px-5 py-2 text-sm font-medium bg-crimson text-ivory rounded-full hover:bg-orange transition-colors"
+                  {...(event.ctaUrl.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                 >
                   {event.cta}
                 </a>

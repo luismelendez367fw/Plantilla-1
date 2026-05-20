@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 
 export default function StoreSection() {
@@ -20,10 +21,22 @@ export default function StoreSection() {
               key={index}
               className="rounded-2xl overflow-hidden card-surface hover:border-crimson/40 transition-colors"
             >
-              <div
-                className={`h-48 bg-gradient-to-br ${product.imageGradient}`}
-                aria-hidden="true"
-              />
+              {product.image ? (
+                <div className="relative h-48 bg-ivory/60">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`h-48 bg-gradient-to-br ${product.imageGradient}`}
+                  aria-hidden="true"
+                />
+              )}
               <div className="p-6">
                 <h3 className="font-display text-xl text-carbon mb-2">
                   {product.name}
