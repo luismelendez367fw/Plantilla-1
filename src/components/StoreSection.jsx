@@ -38,7 +38,7 @@ export default function StoreSection() {
                 />
               )}
               <div className="p-6">
-                <h3 className="font-display text-xl text-carbon mb-2">
+                <h3 className="font-sans text-xl font-semibold text-carbon mb-2 normal-case">
                   {product.name}
                 </h3>
                 <p className="font-serif text-carbon/75 text-sm mb-3 leading-relaxed">

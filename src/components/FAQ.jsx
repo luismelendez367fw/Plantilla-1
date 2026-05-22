@@ -12,7 +12,7 @@ function FAQItem({ question, answer }) {
         className="w-full py-5 flex items-center justify-between text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-display text-base font-medium text-carbon pr-4">
+        <span className="font-sans text-base font-medium text-carbon pr-4 normal-case">
           {question}
         </span>
         <svg

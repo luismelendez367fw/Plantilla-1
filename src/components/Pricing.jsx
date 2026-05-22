@@ -48,7 +48,7 @@ export default function Pricing() {
                     : "border-teal-mid/30 card-surface text-carbon"
                 }`}
               >
-                <h3 className="font-display text-lg font-semibold mb-1">
+                <h3 className="font-sans text-lg font-semibold mb-1 normal-case">
                   {plan.name}
                 </h3>
                 <p

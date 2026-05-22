@@ -17,7 +17,6 @@ export const siteConfig = {
     backgroundImage:
       "/encabezado/textura-degradado-abstracto-luces-suaves-cosmicas.jpg",
     brandingImage: "/encabezado/lm_elementos-01.png",
-    ctaPanelImage: "/encabezado/espalda.jpg",
     subtitle:
       "Coach y Terapeuta Corporal en Chihuahua - Terapia individual, cursos y talleres de salud física y sanación integral desde la inteligencia emocional.",
     ctaPrimary: "Reserva tu lugar",
@@ -31,9 +30,12 @@ export const siteConfig = {
     subheading: "Cuerpo, emoción y presencia sagrada",
     image: "/sobre mi/uno-8.jpg",
     paragraphs: [
-      "Soy Luis Meléndez, coach y terapeuta corporal. Acompaño a personas que cargan estrés, fatiga o malestar en el cuerpo a encontrar un camino de sanación que no separa lo emocional de lo físico.",
-      "Mi trabajo nace de la convicción de que el cuerpo guarda la memoria de lo que la mente no puede decir. A través de la inteligencia emocional, el movimiento consciente y espacios de ritual contemporáneo, abrimos puertas hacia el descanso, la confianza y la plenitud.",
-      "En Chihuahua ofrezco terapias individuales, talleres grupales y cursos — algunos también en línea — para quienes buscan una alternativa profunda, intensa y humana, lejos de la frialdad clínica y del wellness superficial.",
+      "Soy Luis Meléndez, Coach y Terapeuta Corporal.",
+      "El cuerpo es una constante fuente de sabiduría, sanación y libertad.",
+      "Soy un coach y terapeuta corporal apasionado por guiar y sostener procesos que liberen, sanen y conecten las emociones a tu vehículo más preciado: tu cuerpo.",
+      "¿Cómo lo hago?",
+      "A través de diferentes experiencias como terapias, talleres, retiros y acompañamiento personal.",
+      "«Que la conexión con tu cuerpo sea tu super poder.»",
     ],
   },
 
@@ -41,6 +43,8 @@ export const siteConfig = {
     heading: "Servicios",
     subheading:
       "Terapias, talleres y cursos diseñados para que tu cuerpo respire y tu alma encuentre silencio.",
+    backgroundImage:
+      "/fondos/textura-degradada-abstracta-tonos-azules-cian.jpg",
     iconImage: "/brand/lm_elementos-09.png",
     items: [
       {
@@ -132,6 +136,8 @@ export const siteConfig = {
   events: {
     heading: "Calendario de eventos",
     subheading: "Encuentros, talleres y ceremonias del año",
+    backgroundImage:
+      "/fondos/textura-degradada-abstracta-tonos-azules-cian.jpg",
     items: [
       {
         dateRange: "Todos los martes",
@@ -198,6 +204,8 @@ export const siteConfig = {
   testimonials: {
     heading: "Testimonios",
     subheading: "Voces de quienes han caminado este proceso",
+    backgroundImage:
+      "/fondos/textura-degradada-abstracta-tonos-azules-cian.jpg",
     items: [
       {
         name: "Mary T.",

@@ -33,7 +33,14 @@ export default function AboutSection() {
 
           <div className="space-y-6 font-serif text-carbon/80 text-lg leading-relaxed md:pt-2">
             {paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
+              <p
+                key={i}
+                className={
+                  i === paragraphs.length - 1 ? "italic text-carbon/90" : undefined
+                }
+              >
+                {p}
+              </p>
             ))}
           </div>
         </div>

@@ -1,11 +1,84 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Cormorant Unicase";
+  src: url("/fonts/CormorantUnicase-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Unicase";
+  src: url("/fonts/CormorantUnicase-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Unicase";
+  src: url("/fonts/CormorantUnicase-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Unicase";
+  src: url("/fonts/CormorantUnicase-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Unicase";
+  src: url("/fonts/CormorantUnicase-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Argentum Sans";
+  src: url("/fonts/ArgentumSans-ExtraLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Argentum Sans";
+  src: url("/fonts/ArgentumSans-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Argentum Sans";
+  src: url("/fonts/ArgentumSans-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Argentum Sans";
+  src: url("/fonts/ArgentumSans-LightItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --color-crimson: #d6183e;
   --color-teal-dark: #12404f;
   --color-orange: #e96c1a;
   --color-teal-mid: #318b89;
   --color-carbon: #231f20;
+  --color-cobalt-black: #0c1624;
   --color-parchment: #e8e0d4;
   --color-bg: #e8e0d4;
   --color-text: #231f20;
@@ -25,21 +98,23 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-dm-sans);
-  --font-display: var(--font-cormorant-unicase);
-  --font-serif: var(--font-cormorant-garamond);
+  --font-sans: "Argentum Sans", system-ui, sans-serif;
+  --font-display: "Cormorant Unicase", Georgia, serif;
+  --font-serif: "Argentum Sans", system-ui, sans-serif;
 
   --color-crimson: #d6183e;
   --color-teal-dark: #12404f;
   --color-orange: #e96c1a;
   --color-teal-mid: #318b89;
   --color-carbon: #231f20;
+  --color-cobalt-black: #0c1624;
   --color-parchment: #e8e0d4;
   --color-ivory: #f5f0eb;
   --color-sand: #a89f96;
 }
 
 body {
+  font-family: var(--font-sans);
   background-color: var(--color-parchment);
   color: var(--color-text);
 }
@@ -71,8 +146,21 @@ body {
   box-shadow: 0 4px 20px rgba(35, 31, 32, 0.06);
 }
 
+.card-accent-top {
+  height: 0.5rem;
+  width: 100%;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-crimson) 0%,
+    var(--color-orange) 45%,
+    var(--color-teal-dark) 100%
+  );
+}
+
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display);
+  text-transform: lowercase;
 }
 
 .font-serif {
@@ -116,19 +204,9 @@ body {
 }
 
 .hero-encabezado__cta-panel {
-  border: 1px solid rgba(245, 240, 235, 0.25);
-  box-shadow: 0 12px 40px rgba(35, 31, 32, 0.28);
-}
-
-.hero-encabezado__btn-secondary {
-  border-color: rgba(245, 240, 235, 0.75);
-  color: var(--color-ivory);
-  background: rgba(35, 31, 32, 0.2);
-  backdrop-filter: blur(4px);
-}
-
-.hero-encabezado__btn-secondary:hover {
-  background: rgba(35, 31, 32, 0.35);
+  background-color: var(--color-cobalt-black);
+  border: 1px solid rgba(49, 139, 137, 0.35);
+  box-shadow: 0 12px 40px rgba(12, 22, 36, 0.45);
 }
 
 .header-logo {
@@ -140,6 +218,10 @@ body {
   filter: grayscale(1) brightness(2.2) sepia(0.35) saturate(4) hue-rotate(128deg);
   mix-blend-mode: lighten;
   opacity: 0.85;
+}
+
+.brand-divider-cobalt {
+  background-color: var(--color-cobalt-black);
 }
 
 .brand-gallery-card {
@@ -171,6 +253,18 @@ body {
 
 .btn-secondary {
   @apply inline-flex items-center justify-center px-8 py-3.5 border border-teal-mid text-carbon font-medium rounded-full transition-colors hover:bg-teal-mid/15;
+}
+
+.hero-encabezado__btn-secondary {
+  border-color: rgba(245, 240, 235, 0.75);
+  color: var(--color-ivory);
+  background: rgba(35, 31, 32, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+.hero-encabezado__btn-secondary:hover {
+  color: var(--color-ivory);
+  background: rgba(245, 240, 235, 0.12);
 }
 
 .footer-logo {

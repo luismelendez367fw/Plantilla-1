@@ -20,12 +20,12 @@ export default function BlogSection() {
               key={index}
               className="group rounded-2xl card-surface overflow-hidden hover:border-crimson/40 transition-colors"
             >
-              <div className="h-2 bg-gradient-to-r from-crimson via-orange to-teal-dark" />
+              <div className="card-accent-top" aria-hidden="true" />
               <div className="p-8">
                 <span className="text-xs uppercase tracking-widest text-teal-mid font-medium">
                   {post.category}
                 </span>
-                <h3 className="font-display text-xl text-carbon mt-3 mb-3 group-hover:text-orange transition-colors">
+                <h3 className="font-sans text-xl font-semibold text-carbon mt-3 mb-3 normal-case group-hover:text-orange transition-colors">
                   {post.title}
                 </h3>
                 <p className="font-serif text-carbon/75 text-sm leading-relaxed mb-6">

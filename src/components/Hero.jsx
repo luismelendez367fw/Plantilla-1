@@ -6,7 +6,6 @@ export default function Hero() {
   const {
     backgroundImage,
     brandingImage,
-    ctaPanelImage,
     subtitle,
     ctaPrimary,
     ctaSecondary,
@@ -38,32 +37,26 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 px-6 pb-14 md:pb-16">
-        <div className="max-w-2xl mx-auto hero-encabezado__cta-panel rounded-2xl overflow-hidden relative">
-          <Image
-            src={ctaPanelImage}
-            alt=""
-            fill
-            sizes="(max-width: 672px) 100vw, 672px"
-            className="object-cover object-[center_30%]"
-          />
-          <div className="relative z-10 px-6 py-8 text-center">
-            <p className="font-serif text-base md:text-lg text-ivory leading-relaxed mb-8 drop-shadow-[0_1px_10px_rgba(35,31,32,0.85)]">
-              {subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={ctaPrimaryUrl}
-                className="btn-primary w-full sm:w-auto text-center shadow-md"
-              >
-                {ctaPrimary}
-              </a>
-              <a
-                href={ctaSecondaryUrl}
-                className="btn-secondary hero-encabezado__btn-secondary w-full sm:w-auto text-center"
-              >
-                {ctaSecondary}
-              </a>
-            </div>
+        <div className="max-w-2xl mx-auto hero-encabezado__cta-panel rounded-2xl overflow-hidden">
+          <div className="card-accent-top" aria-hidden="true" />
+          <div className="px-6 py-8 text-center">
+          <p className="font-serif text-base md:text-lg text-ivory leading-relaxed mb-8">
+            {subtitle}
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={ctaPrimaryUrl}
+              className="btn-primary w-full sm:w-auto text-center shadow-md"
+            >
+              {ctaPrimary}
+            </a>
+            <a
+              href={ctaSecondaryUrl}
+              className="btn-secondary hero-encabezado__btn-secondary text-ivory w-full sm:w-auto text-center"
+            >
+              {ctaSecondary}
+            </a>
+          </div>
           </div>
         </div>
       </div>
