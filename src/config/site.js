@@ -46,21 +46,102 @@ export const siteConfig = {
     backgroundImage:
       "/fondos/textura-degradada-abstracta-tonos-azules-cian.jpg",
     iconImage: "/brand/lm_elementos-09.png",
+    detailsPageUrl: "/servicios",
+    scheduleCta: "Agendar por WhatsApp",
+    trustImage: "/servicios/luis-sesion-naturaleza.jpg",
+    trustImageAlt:
+      "Luis Meléndez, coach y terapeuta corporal, en un entorno natural durante una sesión de conexión corporal",
+    trustCaption:
+      "Cada proceso es personal. Te acompaño con presencia, escucha y técnicas que integran cuerpo, emoción y consciencia.",
     items: [
       {
         title: "Terapias Individuales",
         description:
           "Sesiones uno a uno de terapia corporal e inteligencia emocional. Un espacio seguro, intenso y confidencial para liberar tensiones y reconectar contigo.",
+        detailedDescription:
+          "Sesiones personalizadas de terapia corporal e inteligencia emocional. Elige la modalidad que mejor se adapte a tu proceso:",
+        options: [
+          {
+            title: "Masaje para el Alma",
+            description:
+              "Técnica terapéutica que atiende lesión/enfermedad desde la gestión de emociones, liberación emocional y reprogramación de pensamientos negativos. Así como situaciones repetitivas que causan malestar no solo físico sino mental, emocional y espiritual. Equilibras cuerpo, mente, emoción y espíritu.",
+            price: "$1,250",
+            duration: "90 min",
+            whatsappMessage:
+              "Hola Luis, me interesa agendar Masaje para el Alma. ¿Tienes disponibilidad?",
+          },
+          {
+            title: "Masaje relajante",
+            description:
+              "Enfocado a una experiencia de descanso físico, técnica tradicional de masaje y cuerpo completo para relajación total, antiestrés, disfrute y regeneración celular.",
+            price: "$800",
+            duration: "60 a 75 min",
+            variants: [
+              { name: "Piedras calientes", price: "$950" },
+              { name: "Bambuterapia", price: "$950" },
+            ],
+            whatsappMessage:
+              "Hola Luis, me interesa agendar un Masaje relajante. ¿Tienes disponibilidad?",
+          },
+          {
+            title: "Masaje Energético",
+            description:
+              "Igual que el relajante + técnica de liberación de fatiga mental con una meditación guiada enfocada en descanso mental y liberación de ansiedad.",
+            price: "$900",
+            duration: "75 min",
+            whatsappMessage:
+              "Hola Luis, me interesa agendar un Masaje Energético. ¿Tienes disponibilidad?",
+          },
+          {
+            title: "Coaching (Niños, Adolescentes y Adultos)",
+            description:
+              "Técnica terapéutica de autoconocimiento que te permite crear consciencia y adquirir herramientas para obtener resultados claros en tu salud, relaciones personales, laborales, financieras y de vida en general.",
+            price: "$750",
+            duration: "60 min",
+            whatsappMessage:
+              "Hola Luis, me interesa agendar una sesión de Coaching. ¿Tienes disponibilidad?",
+          },
+          {
+            title: "Barras Access",
+            description:
+              "Técnica de 32 puntos energéticos ubicados en la cabeza. Su estimulación libera carga electromagnética de pensamientos, emociones y creencias limitantes acumuladas, facilitando una profunda relajación y apertura a nuevas posibilidades en tu vida.",
+            price: "$750",
+            duration: "45 a 60 min",
+            whatsappMessage:
+              "Hola Luis, me interesa agendar una sesión de Barras Access. ¿Tienes disponibilidad?",
+          },
+          {
+            title: "Kinesiotaping - Vendaje Neuromuscular",
+            description:
+              "Técnica terapéutica para tratar lesiones y aliviar el dolor. Este vendaje, a comparación de la técnica tradicional, acompaña el movimiento estimulando el sistema nervioso y favoreciendo la circulación y el drenaje linfático.",
+            price: "$450",
+            duration: null,
+            whatsappMessage:
+              "Hola Luis, me interesa agendar Kinesiotaping (Vendaje Neuromuscular). ¿Tienes disponibilidad?",
+          },
+        ],
       },
       {
         title: "Talleres Grupales",
         description:
           "Experiencias colectivas en Chihuahua donde el cuerpo, el grupo y el ritual se encuentran. Ideal para procesos de estrés, duelo o transición.",
+        detailedDescription:
+          "Encuentros presenciales en Chihuahua donde el cuerpo, el grupo y el ritual se encuentran. Trabajamos estrés, duelo, transiciones y reconexión emocional con dinámicas corporales, meditación y espacios de compartir. Ideal si buscas sanar en comunidad y sentirte sostenido.",
+        price: "Consultar",
+        period: " según taller y fecha",
+        whatsappMessage:
+          "Hola Luis, me interesa inscribirme a un Taller Grupal. ¿Cuáles son las próximas fechas?",
       },
       {
         title: "Cursos Online",
         description:
           "Formación a distancia en inteligencia emocional y sanación corporal. Aprende a tu ritmo con acompañamiento directo.",
+        detailedDescription:
+          "Formación a distancia en inteligencia emocional y sanación corporal. Accede a módulos en video, material de apoyo y seguimiento directo conmigo. Incluye una sesión individual personalizada para integrar lo aprendido a tu ritmo y desde tu casa.",
+        price: "$500",
+        period: " MXN · anticipo",
+        whatsappMessage:
+          "Hola Luis, me interesa el Curso Online. ¿Me puedes dar más información?",
       },
     ],
   },

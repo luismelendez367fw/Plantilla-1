@@ -1,10 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import ChevronDivider from "@/components/brand/ChevronDivider";
 
 export default function Features() {
-  const { heading, subheading, backgroundImage, iconImage, items } =
-    siteConfig.features;
+  const {
+    heading,
+    subheading,
+    backgroundImage,
+    iconImage,
+    detailsPageUrl = "/servicios",
+    items,
+  } = siteConfig.features;
 
   return (
     <section id="features" className="relative overflow-hidden py-20 px-6">
@@ -43,31 +50,37 @@ export default function Features() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {items.map((feature, index) => (
-            <div
+            <Link
               key={index}
-              className="card-surface rounded-2xl overflow-hidden hover:border-crimson/40 hover:shadow-[0_4px_24px_rgba(214,24,62,0.12)] transition-all duration-300"
+              href={detailsPageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-surface rounded-2xl overflow-hidden text-left hover:border-crimson/40 hover:shadow-[0_4px_24px_rgba(214,24,62,0.12)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2"
             >
               <div className="card-accent-top" aria-hidden="true" />
               <div className="p-8">
-              {iconImage ? (
-                <div className="mb-5 flex h-12 w-12 items-center justify-center">
-                  <Image
-                    src={iconImage}
-                    alt=""
-                    width={48}
-                    height={48}
-                    className="h-10 w-10 object-contain brightness-0 opacity-85"
-                  />
-                </div>
-              ) : null}
-              <h3 className="font-sans text-xl font-semibold text-carbon mb-3 normal-case">
-                {feature.title}
-              </h3>
-              <p className="text-carbon/75 leading-relaxed font-serif">
-                {feature.description}
-              </p>
+                {iconImage ? (
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center">
+                    <Image
+                      src={iconImage}
+                      alt=""
+                      width={48}
+                      height={48}
+                      className="h-10 w-10 object-contain brightness-0 opacity-85"
+                    />
+                  </div>
+                ) : null}
+                <h3 className="font-sans text-xl font-semibold text-carbon mb-3 normal-case">
+                  {feature.title}
+                </h3>
+                <p className="text-carbon/75 leading-relaxed font-serif line-clamp-3">
+                  {feature.description}
+                </p>
+                <span className="mt-4 inline-block text-sm font-medium text-teal-mid">
+                  Ver detalles →
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
